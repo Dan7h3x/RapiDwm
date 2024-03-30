@@ -84,8 +84,8 @@ static const int statusmon               = 0;
 static const int statusmon               = 'A';
 #endif // BAR_STATUSALLMONS_PATCH | BAR_STATICSTATUS_PATCH
 #if BAR_STATUSPADDING_PATCH
-static const int horizpadbar             = 4;   /* horizontal padding for statusbar */
-static const int vertpadbar              = 2;   /* vertical padding for statusbar */
+static const int horizpadbar             = 1;   /* horizontal padding for statusbar */
+static const int vertpadbar              = 1;   /* vertical padding for statusbar */
 #endif // BAR_STATUSPADDING_PATCH
 #if BAR_STATUSBUTTON_PATCH
 static const char buttonbar[]            = "";
@@ -129,7 +129,7 @@ static const unsigned int tabcyclekey      = 0x17; /* (Tab) when this key is hit
 static const unsigned int tabposy          = 2;    /* tab position on Y axis, 0 = top, 1 = center, 2 = bottom */
 static const unsigned int tabposx          = 1;    /* tab position on X axis, 0 = left, 1 = center, 2 = right */
 static const unsigned int maxwtab          = 300;  /* tab menu width */
-static const unsigned int maxhtab          = 200;  /* tab menu height */
+static const unsigned int maxhtab          = 100;  /* tab menu height */
 #endif // ALT_TAB_PATCH
 
 /* Indicators: see patch/bar_indicators.h for options */
@@ -154,9 +154,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = { "JetBrainsMono Nerd Font:size=13" };
+static const char font[]                 = { "JetBrainsMono Nerd Font:size=12" };
 #else
-static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=14" };
+static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=12" };
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "FantasqueSansMono Nerd Font:size=14";
 #include "themes/tokyo.h"
@@ -360,12 +360,14 @@ static const char *const autostart[] = {
 #endif // COOL_AUTOSTART_PATCH
 
 #if RENAMED_SCRATCHPADS_PATCH
-static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
+static const char *scratchpadcmd[] = {"s", "alacritty", "-T", "ScratchPad", NULL};
 #elif SCRATCHPADS_PATCH
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "70x30", NULL };
+const char *spcmd1[] = {"alacritty", "--class","'Float'","-T", "ScratchPad", NULL };
+const char *spmusic[] = {"alacritty","--class","'FloatMusic'","-e","ncmpcpp", "-T", "Music",NULL};
 static Sp scratchpads[] = {
    /* name          cmd  */
-   {"spterm",      spcmd1},
+   {"'Float'",      spcmd1},
+   {"FloatMusic",spmusic},
 };
 #endif // SCRATCHPADS_PATCH
 
@@ -376,7 +378,7 @@ static Sp scratchpads[] = {
  *
  * Examples:
  *
- *  1) static char *tagicons[][NUMTAGS*2] = {
+ *  1 static char *tagicons[][NUMTAGS*2] = {
  *         [DEFAULT_TAGS] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I" },
  *     }
  *
@@ -450,7 +452,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Matlab R2018b", .isfloating = 1)
+	RULE(.class = "MATLAB R2018b", .isfloating = 1)
 	RULE(.class = "Matlab", .isfloating = 1)
   RULE(.class = "sun-awt-X11-XFramePeer", .isfloating = 1)
 
@@ -465,9 +467,10 @@ static const Rule rules[] = {
   RULE(.class = "Blueman-manager", .isfloating = 1)
   RULE(.class = "Windscribe2", .isfloating = 1)
 	#if RENAMED_SCRATCHPADS_PATCH
-	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
+	RULE(.instance = "Float", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
-	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
+	RULE(.instance = "'Float'", .tags = SPTAG(0), .isfloating = 1)
+	RULE(.instance = "'FloatMusic'", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
 };
 
@@ -904,6 +907,7 @@ static const Key keys[] = {
 	{MODKEY,			XK_x,		spawn,			SHCMD("powermenu")},
   {Mod1Mask,      XK_k, spawn, {.v=keybs}},
 	{ MODKEY,             XK_Return,     spawn,                  {.v = alacritty } },
+	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 { ControlMask|Mod1Mask,             XK_l,     spawn,                  {.v = lockscreen } },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
