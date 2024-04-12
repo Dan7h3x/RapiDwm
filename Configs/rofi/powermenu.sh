@@ -105,6 +105,8 @@ $lock)
 		betterlockscreen -l
 	elif [[ -x '/usr/bin/i3lock' ]]; then
 		i3lock
+	else
+		lock.sh
 	fi
 	;;
 $suspend)

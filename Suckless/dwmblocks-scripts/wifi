@@ -13,6 +13,6 @@ black="#000000"
 
 SSID=$(iwgetid -r)
 case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-up) printf "^b$black^^c$green^直^d^^b$blue^^c$black^%s $SSID^d^ " ;;
-down) printf "^b$black^^c$red^睊^d^^b$blue^^c$black^Off^d^ " ;;
+up) printf "^b$black^^c$green^直^d^^b$blue^^c$black^%s$SSID^d^" ;;
+down) printf "^b$black^^c$red^睊^d^^b$blue^^c$black^Off^d^" ;;
 esac

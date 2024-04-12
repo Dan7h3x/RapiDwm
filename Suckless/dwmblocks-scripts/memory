@@ -10,6 +10,5 @@ yellow="#CCFF00"
 cyan="#00FEFC"
 teal="#43BBB6"
 black="#000000"
-grey="#B0B6B6"
 
-echo "^b$grey^^c$orange^^d^^b$orange^^c$grey^$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)^d^ "
+echo "^b$black^^c$orange^^d^^b$orange^^c$black^$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)^d^"

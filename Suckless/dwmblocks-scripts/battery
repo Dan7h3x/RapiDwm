@@ -13,15 +13,14 @@ yellow="#CCFF00"
 cyan="#00FEFC"
 teal="#43BBB6"
 black="#000000"
-grey="#A0B6C6"
 
 if [[ ! $(acpi -b | grep -i battery) ]]; then
 	exit 0
 else
-	if [[ ! $(acpi -a|grep -i adapter|grep -i on-line) ]]; then
-		printf "^b$grey^^c$FG^$IC^d^"
+	if [[ ! $(acpi -a | grep -i adapter | grep -i on-line) ]]; then
+		printf "^b$black^^c$FG^$IC^d^"
 	else
-		printf "^b$grey^^c$FG^$IC^d^"
+		printf "^b$black^^c$FG^$IC^d^"
 	fi
-	echo "^b$FG^^c$grey^$(acpi | sed "s/,//g" | awk '{print $4}' | tr -d "\n")^d^ "
+	echo "^b$FG^^c$black^$(acpi | sed "s/,//g" | awk '{print $4}' | tr -d "\n")^d"
 fi

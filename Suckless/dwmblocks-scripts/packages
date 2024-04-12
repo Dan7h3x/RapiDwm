@@ -12,5 +12,4 @@ cyan="#00FEFC"
 teal="#43BBB6"
 black="#000000"
 
-grey="#B0B6B6"
-echo "^b$grey^^c$cyan^^d^^b$cyan^^c$grey^$(pacman -Q | wc -l)^d^ "
+echo "^b$black^^c$cyan^^d^^b$cyan^^c$black^$(pacman -Q | wc -l)^d^"

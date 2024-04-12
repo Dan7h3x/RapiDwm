@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 red="#FF3131"
 purple="#9457EB"
 green="#39FF14"
@@ -8,19 +7,6 @@ bblue="#89CFF0"
 orange="#F6890A"
 yellow="#CCFF00"
 cyan="#00FEFC"
+teal="#43BBB6"
 black="#000000"
-grey="#B0B6B6"
-
-CARD=$(ls /sys/class/backlight) | head -n 1
-
-get_backlight() {
-	if [[ "$CARD" == *"intel_"* ]]; then
-		BNESS=$(xbacklight -get)
-		LIGHT=${BNESS%.*}
-	else
-		LIGHT=$(printf "%.0f\n" $(light -G))
-	fi
-}
-
-get_backlight
-echo "^b$grey^^c$yellow^^d^^b$yellow^c$grey^$LIGHT%^d^ "
+echo "^b$black^^c$yellow^^d^^b$yellow^^c$black^$(brightness)^d^"

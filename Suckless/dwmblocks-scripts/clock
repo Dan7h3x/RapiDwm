@@ -14,6 +14,5 @@ yellow="#CCFF00"
 cyan="#00FEFC"
 teal="#43BBB6"
 black="#000000"
-grey="#B0B6B6"
 
-echo -e "^b$grey^^c$blue^^d^^b$blue^^c$grey^$(date '+%d/%m|%I:%M:%S')^d^ "
+echo -e "^^b$black^^c$blue^^d^^b$blue^^c$black^$(date '+%d/%m|%I:%M:%S')^d^"

@@ -890,7 +890,7 @@
  * https://github.com/instantOS/instantWM/
  * https://github.com/bakkeby/dwm-flexipatch/issues/51
  */
-#define ON_EMPTY_KEYS_PATCH 0
+#define ON_EMPTY_KEYS_PATCH 1
 
 /* Minor patch that prevents more than one rule being matched for a given
  * client. */
@@ -941,7 +941,7 @@
  *
  * https://github.com/bakkeby/patches/wiki/renamedscratchpads
  */
-#define RENAMED_SCRATCHPADS_PATCH 0
+#define RENAMED_SCRATCHPADS_PATCH 1
 
 /* Renamed scratchpads option to auto-hide scratchpads when moving to a
  * different tag. This behaviour is similar to that of the (multiple)
@@ -1008,14 +1008,14 @@
  * windows. It is typically useful when one need to do some short typing.
  *
  * Note that this patch changes TAGMASK to make room for special scratchpad
- * tags, so ~0 does more than select all tags with this patch. Code that relies
+ * tags, so ~0 does more than select all tags with this patch. Code that reles
  * on ~0 to represent all tags should use ~SPTAGMASK instead.
  *
  * Upgraded to Christian Tenllado's multiple scratchpad version.
  * https://lists.suckless.org/hackers/2004/17205.html
  * https://dwm.suckless.org/patches/scratchpads/
  */
-#define SCRATCHPADS_PATCH 1
+#define SCRATCHPADS_PATCH 0
 
 /* Minor alteration of the above allowing clients to keep their size and
  * position when shown */
@@ -1497,3 +1497,46 @@
  * This can be optionally disabled in favour of other layouts.
  */
 #define MONOCLE_LAYOUT 1
+
+
+
+/**
+ * New patches
+ *
+ * Description.
+ */
+
+/* By default dwm will terminate on color allocation failure and the behaviour is intended to
+ * catch and inform the user of color configuration issues.
+ *
+ * Some patches like status2d and xresources / xrdb can change colours during runtime, which
+ * means that if a color can't be allocated at this time then the window manager will abruptly
+ * terminate.
+ *
+ * This patch will ignore color allocation failures and continue on as normal. The effect of
+ * this is that the existing color, that was supposed to be replaced, will remain as-is.
+ */
+
+#define DO_NOT_DIE_ON_COLOR_ALLOCATION_FAILURE_PATCH 0
+
+/* When changing tags, closing windows or moving clients out of view then focus will revert to the
+ * client window that remains under the mouse cursor rather than the most recently focused window.
+ * https://github.com/bakkeby/patches/wiki/focusfollowmouse
+ */
+
+
+#define FOCUSFOLLOWMOUSE_PATCH 0
+
+/* Similar to the focusdir patch this patch allow users to move a window in any direction
+ * in the tiled stack (up, down, left, right).
+ * https://github.com/bakkeby/patches/wiki/placedir
+ */
+#define PLACEDIR_PATCH 0
+
+
+
+/* This patch allows for the bar position (top or bottom) to be toggled during runtime.
+ * https://dwm.suckless.org/patches/toggletopbar/
+ */
+#define TOGGLETOPBAR_PATCH 1
+
