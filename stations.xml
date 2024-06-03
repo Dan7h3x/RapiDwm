@@ -1,0 +1,38 @@
+<Stations>
+  <Station>
+    <uri>http://powerturkakustik.listenpowerapp.com/powerturkakustik/mpeg/icecast.audio</uri>
+    <name>Powerturk Akustik</name>
+  </Station>
+  <Station>
+    <uri>https://frontend.streamonkey.net/energy-berlin/stream/mp3</uri>
+    <name>Energy berlin</name>
+  </Station>
+  <Station>
+    <uri>http://usa9.fastcast4u.com/proxy/jamz</uri>
+    <name>Lofi 24</name>
+  </Station>
+  <Station>
+    <uri>http://stream.104.6rtl.com/rtl-top40/mp3-128/</uri>
+    <name>Charts</name>
+  </Station>
+  <Station>
+    <uri>http://str0.creacast.com/topmusic_hq.mp3</uri>
+    <name>Top</name>
+  </Station>
+  <Station>
+    <uri>http://stream.radyoodtu.com.tr/canli</uri>
+    <name>ODTU</name>
+  </Station>
+  <Station>
+    <uri>http://stream.radyoodtu.com.tr/easy</uri>
+    <name>ODTU EASY</name>
+  </Station>
+  <Station>
+    <uri>http://stream.radyoodtu.com.tr/rock</uri>
+    <name>ODTU ROCK</name>
+  </Station>
+  <Station>
+    <uri>http://stream.radyoodtu.com.tr/karisikkaset</uri>
+    <name>ODTU MIX</name>
+  </Station>
+</Stations>

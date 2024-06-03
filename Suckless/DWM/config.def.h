@@ -186,11 +186,11 @@ static void (*bartabmonfns[])(Monitor *) = {NULL /* , customlayoutfn */};
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[] = {"JetBrainsMono Nerd Font:size=12"};
+static const char font[] = {"CaskaydiaCove Nerd Font:size=14"};
 #else
-static const char *fonts[] = {"JetBrainsMono Nerd Font:size=12"};
+static const char *fonts[] = {"CaskaydiaCove Nerd Font:size=14"};
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[] = "FantasqueSansMono Nerd Font:size=14";
+static const char dmenufont[] = "CaskaydiaCove Nerd Font:size=14";
 #include "themes/tokyo.h"
 // static char urgfloatcolor[]              = "#db8fd9";
 
